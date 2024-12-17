@@ -13,17 +13,13 @@ export function BookForm({books, setBooks}) {
       author: '',
     });
   }
-
-  function removeSemicolons(string) {
-    return string.replaceAll(';', '');
-  }
   
   async function handleSubmit(event) {
     event.preventDefault();
 
     const newBookData = {
-      title: removeSemicolons(formValues.title),
-      author: removeSemicolons(formValues.author),
+      title: formValues.title,
+      author: formValues.author,
     }
 
     const newBook = await bookService.addBook(newBookData);
